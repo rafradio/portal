@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Test/react-laravel-app/routes/web.php</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Test/react-laravel-app/app/Providers/AppServiceProvider.php</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Test/react-laravel-app/resources/views/welcome.blade.php</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Test/react-laravel-app/database/seeders/MenuSeeder.php</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Test/react-laravel-app/database/seeders/DatabaseSeeder.php</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Test/react-laravel-app/app/Policies/MenunewPolicy.php</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Test/react-laravel-app/database/migrations/2025_09_22_124845_create_permissions_table.php</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Test/react-laravel-app/app/Policies/MenuPolicy.php</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Test/react-laravel-app/app/Models/Permission.php</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Test/react-laravel-app/resources/js/components/HelloReact.jsx</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Test/react-laravel-app/vite.config.js</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Test/react-laravel-app/.env</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Test/react-laravel-app/resources/js/app1.jsx</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Test/react-laravel-app/app/Console/Commands/CreatePermissionsCommand.php</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Test/react-laravel-app/app/Http/Controllers/MenuController.php</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Test/react-laravel-app/app/Models/Menu.php</file>
+        </group>
+    </open-files>
+</project-private>
