@@ -15,35 +15,27 @@ class MenuSeeder extends Seeder
     {
               
         Menu::create([
-            'title' => 'Общие вопросы', 
-            'parent_id' => 4,
-            'route_name' => 'obzh', 
-            'url' => '/obzh', 
-            'permission_name' => 'obzh', 
+            'title' => 'Резиденты/Нерезиденты', 
+            'parent_id' => 6,
+            'route_name' => 'reznerez', 
+            'url' => '/reznerez', 
+            'permission_name' => 'reznerez', 
         ]);
         
         Menu::create([
-            'title' => 'Продукты', 
-            'parent_id' => 4,
-            'route_name' => 'producty', 
-            'url' => '/identifikacia', 
-            'permission_name' => 'identifikacia', 
+            'title' => 'Доверенности', 
+            'parent_id' => 6,
+            'route_name' => 'doveren', 
+            'url' => '/doveren', 
+            'permission_name' => 'doveren', 
         ]);
         
         Menu::create([
-            'title' => 'Иные Кассовые операции', 
-            'parent_id' => 4,
-            'route_name' => 'inye', 
-            'url' => '/inye', 
-            'permission_name' => 'inye', 
-        ]);
-        
-        Menu::create([
-            'title' => 'Карты', 
-            'parent_id' => 5,
-            'route_name' => 'karty', 
-            'url' => '/karty', 
-            'permission_name' => 'karty', 
+            'title' => 'Биометрия', 
+            'parent_id' => 6,
+            'route_name' => 'byometri', 
+            'url' => '/byometri', 
+            'permission_name' => 'byometri', 
         ]);
     }
 }

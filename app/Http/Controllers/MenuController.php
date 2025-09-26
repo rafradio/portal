@@ -21,12 +21,13 @@ class MenuController extends Controller
 //        );
         
         $user = User::find(2);
-        Auth::shouldUse($user);
-        $test = 'test2';
+//        Auth::shouldUse($user);
+        $test = 'test';
 
 //        dd(Gate::allows('testcheck2', null));
         
-        if (! Gate::forUser($user)->allows('testcheck2', $test)) {
+//        if (! Gate::forUser($user)->allows('testcheck2', $test)) {
+        if (! Gate::allows('testcheck2', $test)) {
             try {
                 throw new AuthorizationException('У вас нет разрешения на изменение статуса прихода.');
             } catch (AuthorizationException $e) {
@@ -53,15 +54,21 @@ class MenuController extends Controller
         return response($htmlContent, 200)->header('Content-Type', 'text/html');
     }
     
-    public function buildTree($categories, $arr) {
+    public function buildTree($categories, $children) {
         foreach ($categories as $cat) {
-            $arr[] = [
+            if (count($cat['all_children_recursive']) == 0) {
+                $children = [];
+            } else {
+                $children = $this->buildTree($cat['all_children_recursive'], $children);
+            }
+            
+            $resarr[] = [
                 'id' => $cat['id'], 
                 "title" => $cat['title'],
-                'children'=> count($cat['all_children_recursive']) >0 ? $this->buildTree($cat['all_children_recursive'], $arr) : []
+                'children' => $children
                 ];
-        };
-        return $arr;
+        }
+        return $resarr;
     }
     
 }
