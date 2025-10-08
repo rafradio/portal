@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use App\Models\Menu;
 use App\Policies\MenunewPolicy;
+use App\Models\UserAccess;
 
 class MenuController extends Controller
 {   
@@ -21,13 +22,15 @@ class MenuController extends Controller
 //        );
         
         $user = User::find(2);
+//        $checks = UserAccess::all()->toArray();
+//        dd($checks);
 //        Auth::shouldUse($user);
         $test = 'test';
 
 //        dd(Gate::allows('testcheck2', null));
         
 //        if (! Gate::forUser($user)->allows('testcheck2', $test)) {
-        if (! Gate::allows('testcheck2', $test)) {
+        if (! Gate::allows('testcheck', Menu::class)) {
             try {
                 throw new AuthorizationException('У вас нет разрешения на изменение статуса прихода.');
             } catch (AuthorizationException $e) {
@@ -61,7 +64,7 @@ class MenuController extends Controller
             } else {
                 $children = $this->buildTree($cat['all_children_recursive'], $children);
             }
-            
+            // здесь нужно ставить if
             $resarr[] = [
                 'id' => $cat['id'], 
                 "title" => $cat['title'],

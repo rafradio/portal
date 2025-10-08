@@ -5,12 +5,16 @@ namespace App\Policies;
 use App\Models\Menu;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
+use Illuminate\Auth\Access\HandlesAuthorization;
+use App\Models\UserAccess;
 
 /**
  * @PolicyName(viewAny="Просмотр всех меню", view="Просмотр меню", create="Создание меню", update="Редактирование меню", delete="Удаление меню", restore="Изменение количества заказа", forceDelete="Изменение статуса Проверено куратором"
  */
 class MenunewPolicy
 {
+    use HandlesAuthorization;
+    
     /**
      * Determine whether the user can view any models.
      */
@@ -69,6 +73,13 @@ class MenunewPolicy
     
     public function testcheck(): bool
     {
-        return true;
+        $checks = UserAccess::all()->toArray();
+//        dd(count($checks[0]));
+        if (count($checks[0]) == 3) {
+            return true;
+        } else {
+            return false;
+        }
+        
     }
 }
