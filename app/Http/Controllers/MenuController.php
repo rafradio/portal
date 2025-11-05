@@ -30,13 +30,13 @@ class MenuController extends Controller
 //        dd(Gate::allows('testcheck2', null));
         
 //        if (! Gate::forUser($user)->allows('testcheck2', $test)) {
-        if (! Gate::allows('testcheck', Menu::class)) {
-            try {
-                throw new AuthorizationException('У вас нет разрешения на изменение статуса прихода.');
-            } catch (AuthorizationException $e) {
-                dd($e->getMessage());
-            }
-        }
+//        if (! Gate::allows('testcheck', Menu::class)) {
+//            try {
+//                throw new AuthorizationException('У вас нет разрешения на изменение статуса прихода.');
+//            } catch (AuthorizationException $e) {
+//                dd($e->getMessage());
+//            }
+//        }
         
         $htmlContent = '<h1>Hello laravel controller</h1>';
         $menuItems = Menu::whereNull('parent_id')
@@ -52,24 +52,26 @@ class MenuController extends Controller
                 ->toArray();
 
         $newRes = $this->buildTree($menuItems1, []);
-        dd($newRes);
-        
-        return response($htmlContent, 200)->header('Content-Type', 'text/html');
+//        dd($newRes);
+        return response()->json($newRes);
+//        return response($htmlContent, 200)->header('Content-Type', 'text/html');
     }
     
     public function buildTree($categories, $children) {
         foreach ($categories as $cat) {
             if (count($cat['all_children_recursive']) == 0) {
                 $children = [];
-            } else {
-                $children = $this->buildTree($cat['all_children_recursive'], $children);
+            } else {        
+                    $children = $this->buildTree($cat['all_children_recursive'], $children);
             }
-            // здесь нужно ставить if
-            $resarr[] = [
-                'id' => $cat['id'], 
-                "title" => $cat['title'],
-                'children' => $children
-                ];
+            if ( Gate::allows('testcheck', [Menu::class, $cat['id']])) {
+                $resarr[] = [
+                    'id' => $cat['id'], 
+                    "title" => $cat['title'],
+                    'children' => $children
+                    ];
+            }
+            
         }
         return $resarr;
     }

@@ -71,14 +71,17 @@ class MenunewPolicy
         return false;
     }
     
-    public function testcheck(): bool
+    public function testcheck(User $user, $menu_id): bool
     {
         $checks = UserAccess::all()->toArray();
+//        dd($menu_id);
+//        if ($menu_id == 10) {dd(count($checks[0]));}
+//        dd($checks);
 //        dd(count($checks[0]));
-        if (count($checks[0]) == 3) {
-            return true;
-        } else {
+        if ($checks[0]['access_denied'] == $menu_id) {
             return false;
+        } else {
+            return true;
         }
         
     }
